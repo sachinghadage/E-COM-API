@@ -1,12 +1,12 @@
 import  express from 'express';
-import *  as ProductRouter from './src/features/products/product.routes';
+import productRouter from './src/features/products/product.routes.js';
 
 //create server
 const server = express();
 
 // for all request related to product, redirect to product routes.
 // localhost:3200/api/products
-server.use("api/products")
+server.use("/api/products",productRouter)
 
 //default request handler
 server.get("/",(req,res)=>{
