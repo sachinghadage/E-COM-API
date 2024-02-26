@@ -5,7 +5,16 @@ export default class ProductController {
         res.status(200).send(products);
     }
 
-    addProduct(req,res) {}
+    addProduct(req,res) {
+        const {name,price,sizes}=req.body;
+        const newproduct = {
+            name,
+            price:parseFloat(price),
+            sizes:sizes.split(','),
+            imageUrl:req.file.filename,
+        };
+        ProductModel.add(newproduct);
+    }
 
     rateProduct(req,res) {}
     
